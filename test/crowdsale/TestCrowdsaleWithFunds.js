@@ -3,7 +3,7 @@
 // testrpc has to be run as testrpc -u 0 -u 1 -u 2 -u 3 -u 4 -u 5
 
 import {crowdsaleUTest} from '../utest/Crowdsale';
-import expectThrow from '../helpers/expectThrow';
+import {expectThrow} from 'openzeppelin-solidity/test/helpers/expectThrow';
 
 const CrowdsaleWithFundsTestHelper = artifacts.require("./test_helpers/crowdsale/CrowdsaleWithFundsTestHelper.sol");
 const MintableMultiownedCirculatingTokenTestHelper = artifacts.require("./test_helpers/token/MintableMultiownedCirculatingTokenTestHelper.sol");
@@ -32,8 +32,8 @@ contract('CrowdsaleWithFunds', function(accounts) {
         usingFund: true,
         extraPaymentFunction: 'buy',
         rate: 1,
-        softCap: web3.toWei(100, 'finney'),
-        hardCap: web3.toWei(400, 'finney'),
+        softCap: web3.toWei(200, 'finney'),
+        hardCap: web3.toWei(1000, 'finney'),
         startTime: (new Date('Thu, 12 Oct 2017 0:00:00 GMT')).getTime() / 1000,
         endTime: (new Date('Fri, 13 Oct 2017 0:00:00 GMT')).getTime() / 1000,
         maxTimeBonus: 0,
